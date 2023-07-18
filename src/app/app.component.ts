@@ -1,4 +1,7 @@
+
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'express-session-id';
+
+  constructor(private http: HttpClient) { }
+
+  onSubmit(){
+    console.log(this.otpData.value);
+    this.http.post('http://localhost:3000/auth/login', this.otpData.value, {withCredentials:true}).subscribe({
+      next:response=>{
+        console.log(response);
+
+      },
+      error:err=>{
+        console.log(err);
+      }
+    })
+  }
+
+  otpData = new FormGroup({
+    otp:new FormControl('',[Validators.required]),
+    phone:new FormControl("8709344417")
+  })
+
+
+ 
+
 }
