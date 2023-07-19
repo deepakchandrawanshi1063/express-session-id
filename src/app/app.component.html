@@ -2,6 +2,8 @@
   <p>this is test</p>
   <div>
     <form [formGroup]="otpData" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="phone" formControlName="phone">
+      <br/>
       <input type="text" placeholder="otp" formControlName="otp">
       <button type="submit">submit</button>
     </form>
