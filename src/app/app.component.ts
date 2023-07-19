@@ -28,7 +28,7 @@ export class AppComponent {
 
   otpData = new FormGroup({
     otp:new FormControl('',[Validators.required]),
-    phone:new FormControl("8709344417")
+    phone:new FormControl('',[Validators.required])
   })
 
 
