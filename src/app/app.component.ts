@@ -15,7 +15,7 @@ export class AppComponent {
 
   onSubmit(){
     console.log(this.otpData.value);
-    this.http.post('http://localhost:3000/auth/login', this.otpData.value, {withCredentials:true}).subscribe({
+    this.http.post('https://api-tp.brohit.com/auth/login', this.otpData.value, {withCredentials:true}).subscribe({
       next:response=>{
         console.log(response);
 
